@@ -13,6 +13,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    
+    func stringIsPalindrome(string: String) -> Bool {
+        var counter = 0
+        var tempString = string.lowercased().characters.map{String($0)}
+        var fowardString = tempString.filter( { $0 != " "} )
+        var backwardString = fowardString.reversed()
+        for (index, letter) in backwardString.enumerated() {
+            if letter == fowardString[index] {
+                counter += 1
+            }
+        }
+        if counter == fowardString.count {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func stringByReversingString(string: String) -> String {
+        let reversedWord = String(string.lowercased().characters.reversed())
+        
+        return reversedWord
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
